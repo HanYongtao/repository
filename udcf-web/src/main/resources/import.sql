@@ -1,0 +1,1 @@
+INSERT INTO T_ADMIN(PKID, NAME, PASSWORD, DESCRIPTION) VALUES('1', 'admin', 'admin', 'Administrator'); 
