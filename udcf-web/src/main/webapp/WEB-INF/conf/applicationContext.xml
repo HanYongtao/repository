@@ -19,8 +19,7 @@
 	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
 		destroy-method="close">
 		<property name="driverClass" value="org.h2.Driver" />
-		<property name="jdbcUrl"
-			value="jdbc:h2:ssl://127.0.0.1:6069/./conf/data.dbf"></property>
+		<property name="jdbcUrl" value="jdbc:h2:ssl://127.0.0.1:6069/./conf/data.dbf"></property>
 		<property name="initialPoolSize" value="1"></property>
 		<property name="minPoolSize" value="1"></property>
 		<property name="maxPoolSize" value="3"></property>
@@ -54,4 +53,10 @@
 	</bean>
 
 	<tx:annotation-driven transaction-manager="transactionManager" />
+
+	<bean id="administratorService" class="com.udcf.service.admin.AdministratorService">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
 </beans>

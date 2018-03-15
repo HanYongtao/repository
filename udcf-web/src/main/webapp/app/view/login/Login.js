@@ -13,7 +13,7 @@ Ext.define('UDCF.view.login.Login', {
 	layout : 'fit',
 	items : {
 		xtype : 'form',
-		reference : 'form',
+		reference : 'loginform',
 		bodyPadding : '25',
 		url : 'login.action',
 		items : [{
@@ -28,6 +28,7 @@ Ext.define('UDCF.view.login.Login', {
 			fieldLabel : '登录密码',
 			allowBlank : false
 		}],
+		buttonsAlign : 'center',
 		buttons : [{
 			text : '登录',
 			formBind : true,

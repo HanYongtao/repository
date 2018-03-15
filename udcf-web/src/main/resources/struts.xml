@@ -6,10 +6,30 @@
 <struts>
 
 	<constant name="struts.devMode" value="false" />
+	<constant name="struts.objectFactory" value="spring" />
+	<constant name="struts.custom.i18n.resources" value="resources" />
 
-	<package name="basicstruts2" extends="struts-default">
+	<package name="struts-udcf" extends="json-default">
+
+		<global-results>
+			<result type="json" name="input">
+				<param name="noCache">true</param>
+				<param name="ignoreHierarchy">false</param>
+				<param name="includeProperties">
+					success,
+					message,
+					fieldErrors.*
+				</param>
+			</result>
+		</global-results>
+
 		<action name="index">
 			<result>/index.html</result>
+		</action>
+		<action name="login" class="com.udcf.action.admin.LoginAction">
+			<result type="json">
+				<param name="noCache">true</param>
+			</result>
 		</action>
 	</package>
 
