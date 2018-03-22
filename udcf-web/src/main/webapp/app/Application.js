@@ -12,13 +12,13 @@ Ext.define('UDCF.Application', {
 
 	launch : function() {
 		Ext.Ajax.request({
-			url : 'index.jsp',
+			url : 'loadResource.action',
 			async : false,
 			method : 'POST',
 			scope : this,
 			success : function(resp, opts) {
 				var json = Ext.JSON.decode(resp.responseText, true);
-
+				console.log(json)
 				if (json != null && json.username != null) {
 					Ext.create({
 						xtype : 'app-main'

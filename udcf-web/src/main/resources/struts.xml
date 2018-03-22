@@ -26,7 +26,20 @@
 		<action name="index">
 			<result>/index.html</result>
 		</action>
-		<action name="login" class="com.udcf.action.admin.LoginAction">
+		<action name="login" class="com.udcf.login.action.LoginAction">
+			<result type="json">
+				<param name="noCache">true</param>
+			</result>
+		</action>
+		<action name="vcode" class="com.udcf.login.action.ValidateCodeAction">
+			<result type="stream">
+				<param name="contentType">${contentType}</param>
+				<param name="contentDisposition">inline;filename=${fileName}</param>
+				<param name="inputName">inputStream</param>
+				<param name="allowCaching">false</param>
+			</result>
+		</action>
+		<action name="loadResource" class="com.udcf.resource.action.LoadResourceAction">
 			<result type="json">
 				<param name="noCache">true</param>
 			</result>

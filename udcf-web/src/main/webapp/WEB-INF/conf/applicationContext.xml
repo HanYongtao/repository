@@ -35,7 +35,7 @@
 		<property name="dataSource" ref="dataSource" />
 		<property name="packagesToScan">
 			<list>
-				<value>com.udcf.model</value>
+				<value>com.udcf</value>
 			</list>
 		</property>
 		<property name="hibernateProperties">
@@ -54,7 +54,7 @@
 
 	<tx:annotation-driven transaction-manager="transactionManager" />
 
-	<bean id="administratorService" class="com.udcf.service.admin.AdministratorService">
+	<bean id="administratorService" class="com.udcf.login.service.AdministratorService">
 		<property name="sessionFactory">
 			<ref bean="sessionFactory" />
 		</property>

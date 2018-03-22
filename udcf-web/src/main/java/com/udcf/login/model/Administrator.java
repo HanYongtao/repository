@@ -1,4 +1,4 @@
-package com.udcf.model.admin;
+package com.udcf.login.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

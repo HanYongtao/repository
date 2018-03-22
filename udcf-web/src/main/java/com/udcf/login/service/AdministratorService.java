@@ -1,11 +1,11 @@
-package com.udcf.service.admin;
+package com.udcf.login.service;
 
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.springframework.orm.hibernate5.HibernateCallback;
 import org.springframework.orm.hibernate5.support.HibernateDaoSupport;
 
-import com.udcf.model.admin.Administrator;
+import com.udcf.login.model.Administrator;
 
 public class AdministratorService extends HibernateDaoSupport {
 

@@ -1,5 +1,5 @@
 $app-name:  dynamic( 'UDCF' );
-$image-search-path: 'E:/01_CODE/01_Workspace/udcf-web/src/main/webapp/build/development/UDCF/resources';
+$image-search-path: 'E:/01_CODE/97_Repository/repository/udcf-web/src/main/webapp/build/development/UDCF/resources';
 $theme-name:  dynamic( 'theme-neptune' );
 $include-ext-abstractcomponent: dynamic(true);;
 $include-ext-abstractcontainer: dynamic(true);;
@@ -893,6 +893,7 @@ $include-ext-window-messagebox: dynamic(true);;
 $include-ext-window-toast: dynamic(true);;
 $include-ext-window-window: dynamic(true);;
 $include-udcf-application: dynamic(true);;
+$include-udcf-ex-field-validatecodefield: dynamic(true);;
 $include-udcf-store-personnel: dynamic(true);;
 $include-udcf-view-login-login: dynamic(true);;
 $include-udcf-view-login-logincontroller: dynamic(true);;

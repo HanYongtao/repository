@@ -1,8 +1,10 @@
-package com.udcf.action.admin;
+package com.udcf.login.action;
 
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
-import com.udcf.model.admin.Administrator;
-import com.udcf.service.admin.AdministratorService;
+import com.udcf.login.model.Administrator;
+import com.udcf.login.service.AdministratorService;
+import com.udcf.util.AppContext;
 
 /**
  * 管理员登录验证
@@ -13,7 +15,7 @@ import com.udcf.service.admin.AdministratorService;
 public class LoginAction extends ActionSupport {
 	private static final long		serialVersionUID		= 1100860108906880608L;
 
-	private boolean					success;
+	private boolean					success = false;
 
 	private String					message;
 	
@@ -37,7 +39,14 @@ public class LoginAction extends ActionSupport {
 
 		Administrator admin = administratorService.getAdministrator(username);
 		
-		this.success = (admin == null ? false : admin.getPassword().equals(this.password));
+		if((admin != null && admin.getPassword().equals(this.password))) {
+			success = true;
+			// 设置登录会话
+			ActionContext.getContext().getSession().put(AppContext.APP_SESSION_ADMIN, admin.getName().trim());
+		} else {
+			success = false;
+		}
+		
 		return SUCCESS;
 	}
 
