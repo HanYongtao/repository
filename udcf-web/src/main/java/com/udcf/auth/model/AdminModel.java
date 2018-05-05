@@ -4,13 +4,10 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-
-import org.hibernate.annotations.GenericGenerator;
 
 /**
  * 系统管理员
@@ -20,16 +17,14 @@ import org.hibernate.annotations.GenericGenerator;
  */
 @Entity
 @Table(name = "T_ADMIN")
-public class UserModel {
+public class AdminModel {
 	private String		pkid;
 	private String		name;
-	private String		password;
+	private String		pass;
 	private String		desc;
 	private RoleModel   role;
 
 	@Id
-	@GeneratedValue(generator = "uuid")
-	@GenericGenerator(name = "uuid", strategy = "uuid")
 	@Column(name = "PKID", length = 32)
 	public String getPkid() {
 		return pkid;
@@ -48,13 +43,13 @@ public class UserModel {
 		this.name = name;
 	}
 
-	@Column(name = "PASSWORD", length = 64)
-	public String getPassword() {
-		return password;
+	@Column(name = "PASS", length = 64)
+	public String getPass() {
+		return pass;
 	}
 
-	public void setPassword(String password) {
-		this.password = password;
+	public void setPass(String pass) {
+		this.pass = pass;
 	}
 
 	@Column(name = "DESCRIPTION", length = 256)
