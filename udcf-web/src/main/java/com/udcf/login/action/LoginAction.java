@@ -2,8 +2,8 @@ package com.udcf.login.action;
 
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
-import com.udcf.login.model.Administrator;
-import com.udcf.login.service.AdministratorService;
+import com.udcf.auth.model.UserModel;
+import com.udcf.auth.service.AuthService;
 import com.udcf.util.AppContext;
 
 /**
@@ -13,23 +13,22 @@ import com.udcf.util.AppContext;
  * @date 2018-03-12
  */
 public class LoginAction extends ActionSupport {
-	private static final long		serialVersionUID		= 1100860108906880608L;
+	private static final long	serialVersionUID	= 1100860108906880608L;
 
-	private boolean					success = false;
+	private boolean				success				= false;
 
-	private String					message;
-	
-	private String                  username;
-	
-	private String                  password;
+	private String				message;
 
-	private AdministratorService	administratorService	= null;
+	private String				username;
+
+	private String				password;
+
+	private AuthService			authService			= null;
 
 	@Override
 	public void validate() {
-		
-		if(this.username == null || "".equals(this.username.trim()))
-		{
+
+		if (this.username == null || "".equals(this.username.trim())) {
 			this.addFieldError("username", this.getText("login.form.field.username.required"));
 		}
 	}
@@ -37,16 +36,16 @@ public class LoginAction extends ActionSupport {
 	@Override
 	public String execute() throws Exception {
 
-		Administrator admin = administratorService.getAdministrator(username);
-		
-		if((admin != null && admin.getPassword().equals(this.password))) {
+		UserModel userModel = authService.getAdministrator(username);
+
+		if ((userModel != null && userModel.getPassword().equals(this.password))) {
 			success = true;
 			// 设置登录会话
-			ActionContext.getContext().getSession().put(AppContext.APP_SESSION_ADMIN, admin.getName().trim());
+			ActionContext.getContext().getSession().put(AppContext.APP_SESSION_ADMIN, userModel.getName().trim());
 		} else {
 			success = false;
 		}
-		
+
 		return SUCCESS;
 	}
 
@@ -66,7 +65,8 @@ public class LoginAction extends ActionSupport {
 		this.password = password;
 	}
 
-	public void setAdministratorService(AdministratorService administratorService) {
-		this.administratorService = administratorService;
+	public void setAuthService(AuthService authService) {
+		this.authService = authService;
 	}
+
 }
