@@ -32,8 +32,8 @@ public class RoleModel {
 
 	@Id
 	@GeneratedValue(generator = "uuid")
-	@GenericGenerator(name = "uuid", strategy = "uuid")
-	@Column(name = "PKID", length = 32)
+	@GenericGenerator(name = "uuid", strategy = "org.hibernate.id.UUIDGenerator")
+	@Column(name = "PKID", length = 36)
 	public String getPkid() {
 		return pkid;
 	}

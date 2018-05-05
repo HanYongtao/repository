@@ -5,7 +5,7 @@ import org.hibernate.Session;
 import org.springframework.orm.hibernate5.HibernateCallback;
 import org.springframework.orm.hibernate5.support.HibernateDaoSupport;
 
-import com.udcf.auth.model.UserModel;
+import com.udcf.auth.model.AdminModel;
 
 public class AuthService extends HibernateDaoSupport {
 
@@ -14,12 +14,13 @@ public class AuthService extends HibernateDaoSupport {
 	 * @param name
 	 * @return
 	 */
-	public UserModel getAdministrator(final String name)
+	public AdminModel getAdministrator(final String name)
 	{
-		return this.getHibernateTemplate().execute(new HibernateCallback<UserModel>() {
-			public UserModel doInHibernate(Session session) throws HibernateException {
-				return (UserModel) session
-						.createQuery("from Administrator where name = ?")
+		return this.getHibernateTemplate().execute(new HibernateCallback<AdminModel>() {
+			public AdminModel doInHibernate(Session session) throws HibernateException {
+				
+				return (AdminModel) session
+						.createQuery("from AdminModel where name = ?")
 						.setParameter(0, name)
 						.uniqueResult();
 			}

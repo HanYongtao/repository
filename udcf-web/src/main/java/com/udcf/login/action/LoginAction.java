@@ -2,7 +2,7 @@ package com.udcf.login.action;
 
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
-import com.udcf.auth.model.UserModel;
+import com.udcf.auth.model.AdminModel;
 import com.udcf.auth.service.AuthService;
 import com.udcf.util.AppContext;
 
@@ -36,9 +36,9 @@ public class LoginAction extends ActionSupport {
 	@Override
 	public String execute() throws Exception {
 
-		UserModel userModel = authService.getAdministrator(username);
+		AdminModel userModel = authService.getAdministrator(username);
 
-		if ((userModel != null && userModel.getPassword().equals(this.password))) {
+		if ((userModel != null && userModel.getPass().equals(this.password))) {
 			success = true;
 			// 设置登录会话
 			ActionContext.getContext().getSession().put(AppContext.APP_SESSION_ADMIN, userModel.getName().trim());
