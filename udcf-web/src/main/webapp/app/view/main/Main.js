@@ -38,6 +38,7 @@ Ext.define('UDCF.view.main.Main', {
             flex: 0
         },
         iconCls: 'fa-th-list'
+        
     },
 
     tabBar: {
@@ -58,13 +59,14 @@ Ext.define('UDCF.view.main.Main', {
     },
 
     defaults: {
-        bodyPadding: 20,
+        bodyPadding: 5,
         tabConfig: {
             plugins: 'responsive',
             responsiveConfig: {
                 wide: {
                     iconAlign: 'left',
-                    textAlign: 'left'
+                    textAlign: 'left',
+                    	width: 240
                 },
                 tall: {
                     iconAlign: 'top',
@@ -76,26 +78,27 @@ Ext.define('UDCF.view.main.Main', {
     },
 
     items: [{
-        title: 'Home',
+        title: '班级管理',
         iconCls: 'fa-home',
         // The following grid shares a store with the classic version's grid as well!
         items: [{
-            xtype: 'mainlist'
+            xtype: 'mainlist',
+            frame: true
         }]
     }, {
-        title: 'Users',
+        title: '备课管理',
         iconCls: 'fa-user',
         bind: {
             html: '{loremIpsum}'
         }
     }, {
-        title: 'Groups',
+        title: '课后反思',
         iconCls: 'fa-users',
         bind: {
             html: '{loremIpsum}'
         }
     }, {
-        title: 'Settings',
+        title: '家长答疑',
         iconCls: 'fa-cog',
         bind: {
             html: '{loremIpsum}'

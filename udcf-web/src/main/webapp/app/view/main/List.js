@@ -15,6 +15,8 @@ Ext.define('UDCF.view.main.List', {
         type: 'personnel'
     },
 
+    tbar: [{ xtype: 'button', text: 'Button 1'}],
+    	
     columns: [
         { text: 'Name',  dataIndex: 'name' },
         { text: 'Email', dataIndex: 'email', flex: 1 },

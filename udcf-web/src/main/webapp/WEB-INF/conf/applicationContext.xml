@@ -25,8 +25,8 @@
 		<property name="maxPoolSize" value="3"></property>
 		<property name="properties">
 			<props>
-				<prop key="user">admin</prop>
-				<prop key="password">Sauser#123</prop>
+				<prop key="user">sa</prop>
+				<prop key="password">sa</prop>
 			</props>
 		</property>
 	</bean>
@@ -54,7 +54,7 @@
 
 	<tx:annotation-driven transaction-manager="transactionManager" />
 
-	<bean id="administratorService" class="com.udcf.login.service.AdministratorService">
+	<bean id="authService" class="com.udcf.auth.service.AuthService">
 		<property name="sessionFactory">
 			<ref bean="sessionFactory" />
 		</property>
